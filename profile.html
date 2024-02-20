@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: fantasy, cursive;
+            margin: 0;
+            padding: 0;
+            background-image: url('/Users/apple/Documents/FSWDM/Moving.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        header {
+            background-color: transparent;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-family: fantasy, cursive;
+            margin: 0;
+        }
+
+        .user-picture {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            right: 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+            color: #3498db;
+        }
+
+        /* Styles for User Profile */
+        .profile-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(53, 40, 40, 0.1);
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .profile-picture {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+        }
+
+        .user-details {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .user-details h2 {
+            margin: 0;
+            color: white;
+            font-size: 40px;
+        }
+
+        .user-details p {
+            color: white;
+            font-size: 25px;
+        }
+
+        .logout-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Coderz</h1>
+        <div class="dropdown">
+            <img src="/Users/apple/Documents/FSWDM/user.jpeg" alt="User Picture" class="user-picture"
+                onclick="toggleDropdown()">
+            <div class="dropdown-content" id="dropdownContent">
+                <a href="profile.html">Profile</a><br>
+                <a href="progress.html">Progress</a><br>
+                
+                <a href="home.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <img src="/Users/apple/Documents/FSWDM/user.jpeg" alt="Profile Picture" class="profile-picture">
+
+        <div class="user-details">
+            <h2>Bhuvana M</h2>
+            <p>Email: bhu@example.com</p>
+            <p>Location: Bangalore, India</p>
+            <p>DOB: 06-02-2005</p>
+            <p>Ph no.: 9844011226</p>
+            <p>College Name: BMSCE</p>
+            <p>Semester: 3</p>
+            <p>Branch: CSE</p>
+
+        </div>
+
+        <a href="home.html" class="logout-btn">Logout</a>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.user-picture')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

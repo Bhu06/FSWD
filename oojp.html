@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Notes</title>
+    <style>
+        body {
+            font-family: fantasy, cursive;
+            margin: 0;
+            padding: 0;
+            background: url('/Users/apple/Documents/FSWDM/Moving.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            background-color: transparent;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 10px;
+            margin-top: 0px;
+            font-size: 50px;
+        }
+
+        .overview {
+            background: rgba(0, 0, 0, 0);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .overview h2 {
+            color: #0066cc;
+            margin-top: 30px;
+            font-size: 40px;
+        }
+
+        .overview p {
+            color: whitesmoke;
+            font-size: 24px;
+        }
+
+        .overview ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: whitesmoke;
+            font-size: 24px;
+        }
+
+        .chapter-box {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            color: #333;
+            transition: background-color 0.3s;
+            margin: 20px;
+        }
+
+        .chapter-box h2 {
+            color: #0066cc;
+            font-size: 33px;
+        }
+
+        .chapter-box p {
+            font-size: 26px;
+        }
+
+        .chapter-box a {
+            display: inline-block;
+            background-color: #4CAF50;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 24px;
+        }
+
+        .chapter-box a.quiz-btn {
+            background-color: #ffcc00;
+            margin-left: 10px;
+        }
+
+        .user-icon{
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            right: 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Coderz</h1>
+    <div class="dropdown">
+        <img src="/Users/apple/Documents/FSWDM/user.jpeg" alt="User Picture" class="user-icon" onclick="toggleDropdown()">
+        <div class="dropdown-content" id="dropdownContent">
+            <a href="profile.html">Profile</a><br>
+            <a href="progress.html">Progress</a><br>
+     
+            <a href="home.html">Logout</a>
+        </div>
+    </div>
+</header>
+
+<div class="overview">
+    <h1>Subject - Data Structures Using C</h1>
+    <h2>Course Overview</h2>
+    <p>Java is a versatile and widely used programming language, and it is known for its strong support for object-oriented programming concepts. Object-Oriented Java Programming involves creating and designing software using the principles of OOP within the Java language.
+
+    </p>
+    <ul>
+        <li><u>The key principles of Object-Oriented Programming in Java include:</u>
+            </li>
+        <li><u>Classes and Objects: </u>
+            Java is a class-based language where you define classes to create objects. Objects encapsulate data and behavior.</li>
+        <li><u>Inheritance:</u>
+            Java supports the concept of inheritance, allowing a class to inherit properties and behaviors from another class. This promotes code reuse and the creation of hierarchical class structures.</li>
+        <li><u>Polymorphism: </u>
+            Java supports polymorphism, allowing objects of different classes to be treated as objects of a common base class. This enables more flexibility in designing and using classes.</li>
+        <li><u>Encapsulation: </u>
+            Java encourages encapsulation, where data is hidden within a class, and access to it is controlled by methods. This helps in data protection and modularity.</li>
+        <li><u>Trees:</u>
+            Trees are hierarchical data structures with a root, branches, and leaves.
+            Binary trees have at most two children for each node.</li>
+        <li><u>Abstraction: </u>
+            Abstraction involves simplifying complex systems by modeling classes based on their essential properties and behaviors. Java allows you to create abstract classes and interfaces to achieve abstraction.</li>
+         
+    </ul>
+    <p>Object-Oriented Java Programming is widely used in various domains, including software development, web development, and enterprise applications. It provides a structured and modular approach to software design and development, making it easier to manage and maintain complex systems.</p>
+    <!-- Add more bullet points as needed -->
+</div>
+
+<section class="chapter-box">
+    <h2>Unit 1: Classes and Objects</h2>
+    <p>Classes in object-oriented programming serve as blueprints or templates for creating objects. Objects, on the other hand, are instances of classes, encapsulating both data and behavior, allowing for a modular and organized approach to software design.</p>
+    <a href="chapter1_notes.pdf" download>Download Unit 1 Notes</a>
+    <a href="#" class="quiz-btn">Take Quiz</a>
+</section>
+
+<section class="chapter-box">
+    <h2>Unit 2: Inheritance</h2>
+    <p>Inheritance is a fundamental concept in object-oriented programming, allowing a class (subclass or derived class) to inherit properties and behaviors from another class (superclass or base class). It promotes code reuse, extensibility, and the creation of a hierarchical relationship between classes.</p>
+    <a href="chapter2_notes.pdf" download>Download Unit 2 Notes</a>
+    <a href="#" class="quiz-btn">Take Quiz</a>
+</section>
+
+<section class="chapter-box">
+    <h2>Unit 3: Interfaces</h2>
+    <p>An interface in programming defines a contract for classes, specifying a set of methods that implementing classes must provide. It enables multiple classes to share a common set of behaviors without requiring them to share a common base class.</p>
+    <a href="chapter3_notes.pdf" download>Download Unit 3 Notes</a>
+    <a href="#" class="quiz-btn">Take Quiz</a>
+</section>
+
+<section class="chapter-box">
+    <h2>Unit 4: Exceptions</h2>
+    <p>In programming, exceptions are unexpected events or errors that occur during the execution of a program, disrupting its normal flow. Exception handling allows developers to gracefully manage and respond to these unforeseen circumstances, improving the robustness and reliability of software.</p>
+    <a href="chapter4_notes.pdf" download>Download Unit 4 Notes</a>
+    <a href="#" class="quiz-btn">Take Quiz</a>
+</section>
+
+<section class="chapter-box">
+    <h2>Unit 5: MultiThreading</h2>
+    <p>Multithreading is a programming concept where multiple threads execute independently within a single process, enabling concurrent execution of tasks. It improves application performance by efficiently utilizing CPU resources and enhancing responsiveness in parallelizable operations.</p>
+    <a href="chapter5_notes.pdf" download>Download Unit 5 Notes</a>
+    <a href="#" class="quiz-btn">Take Quiz</a>
+</section>
+
+<!-- Add more sections as needed -->
+
+<script>
+    function toggleDropdown() {
+        var dropdownContent = document.getElementById("dropdownContent");
+        dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.user-icon')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === 'block') {
+                    openDropdown.style.display = 'none';
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

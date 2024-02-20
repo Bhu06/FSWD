@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning App - Dashboard</title>
+    <style>
+        /* Your styles go here */
+        body {
+            font-family: fantasy, cursive;
+            margin: 0;
+            padding: 0;
+            background-image: url('/Users/apple/Documents/FSWDM/Moving.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        header {
+            background-color: transparent;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-family: fantasy, cursive;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 44px;
+            color: #0066cc;
+            text-decoration: underline;
+            text-align: center;
+        }
+
+        .user-picture {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            right: 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+            color: #3498db;
+        }
+
+        .quiz-container {
+            width: 70%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            color: black;
+        }
+
+        .question {
+            font-size: 30px;
+            font-family: fantasy, cursive;
+            margin-bottom: 20px;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-gap: 10px;
+            font-size: 23px;
+        }
+
+        .option {
+            cursor: pointer;
+            padding: 10px;
+            border: 2px solid #0066cc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .option:hover {
+            background-color: #e6f7ff;
+        }
+
+        .correct-answer {
+            background-color: #8eff8e; /* Light green for correct answer */
+        }
+
+        #submitBtn {
+            margin-top: 20px;
+            font-family: fantasy, cursive;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 24px;
+            margin-left: 180px;
+        }
+
+        .score {
+            font-size: 24px;
+            font-family: fantasy, cursive;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Coderz</h1>
+        <div class="dropdown">
+            <img src="/Users/apple/Documents/FSWDM/user.jpeg" alt="User Picture" class="user-picture" onclick="toggleDropdown()">
+            <div class="dropdown-content" id="dropdownContent">
+                <a href="profile.html">Profile</a><br>
+                <a href="progress.html">Progress</a><br>
+                
+                <a href="home.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <h2>Trees and Hashing Quiz</h2>
+
+    <div class="quiz-container">
+        <!-- Question 1 -->
+        <div class="question">
+            1. What is a binary tree in data structures?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. A tree structure with at most two children for each node.</div>
+            <div class="option" onclick="selectAnswer(this)">B. A tree structure with unlimited children for each node.</div>
+            <div class="option" onclick="selectAnswer(this)">C. A tree structure with no children for each node.</div>
+            <div class="option" onclick="selectAnswer(this)">D. None of the above.</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 2 -->
+        <div class="question">
+            2. What is the process of visiting all the nodes of a tree and performing an operation at each node exactly once called?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Insertion</div>
+            <div class="option" onclick="selectAnswer(this)">B. Traversal</div>
+            <div class="option" onclick="selectAnswer(this)">C. Deletion</div>
+            <div class="option" onclick="selectAnswer(this)">D. Rotation</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 3 -->
+        <div class="question">
+            3. In a hash table, what is a collision?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. When two different keys hash to the same index.</div>
+            <div class="option" onclick="selectAnswer(this)">B. When a key hashes to a unique index.</div>
+            <div class="option" onclick="selectAnswer(this)">C. When a key is successfully inserted into the hash table.</div>
+            <div class="option" onclick="selectAnswer(this)">D. None of the above.</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 4 -->
+        <div class="question">
+            4. What is the purpose of a hash function in hashing?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. To perform encryption.</div>
+            <div class="option" onclick="selectAnswer(this)">B. To generate random numbers.</div>
+            <div class="option" onclick="selectAnswer(this)">C. To map keys to indices in the hash table.</div>
+            <div class="option" onclick="selectAnswer(this)">D. None of the above.</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 5 -->
+        <div class="question">
+            5. In a binary search tree, what is the property of the left subtree of a node?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. All nodes have greater values than the node.</div>
+            <div class="option" onclick="selectAnswer(this)">B. All nodes have smaller values than the node.</div>
+            <div class="option" onclick="selectAnswer(this)">C. It can have nodes with either greater or smaller values than the node.</div>
+            <div class="option" onclick="selectAnswer(this)">D. None of the above.</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 6 -->
+        <div class="question">
+            6. What is the primary advantage of using a self-balancing binary search tree (e.g., AVL tree)?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Faster insertion and deletion operations.</div>
+            <div class="option" onclick="selectAnswer(this)">B. Smaller memory footprint.</div>
+            <div class="option" onclick="selectAnswer(this)">C. Improved search performance.</div>
+            <div class="option" onclick="selectAnswer(this)">D. Better aesthetics.</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 7 -->
+        <div class="question">
+            7. What is the load factor in the context of hashing?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. The weight of the hash function.</div>
+            <div class="option" onclick="selectAnswer(this)">B. The ratio of the number of elements to the size of the hash table.</div>
+            <div class="option" onclick="selectAnswer(this)">C. The speed of the hash table.</div>
+            <div class="option" onclick="selectAnswer(this)">D. None of the above.</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 8 -->
+        <div class="question">
+            8. What is the purpose of a hash collision resolution technique?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. To avoid collisions entirely.</div>
+            <div class="option" onclick="selectAnswer(this)">B. To efficiently handle collisions and store multiple keys at the same index.</div>
+            <div class="option" onclick="selectAnswer(this)">C. To increase the size of the hash table.</div>
+            <div class="option" onclick="selectAnswer(this)">D. None of the above.</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 9 -->
+        <div class="question">
+            9. What is the time complexity of searching in a balanced binary search tree?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. O(1)</div>
+            <div class="option" onclick="selectAnswer(this)">B. O(log n)</div>
+            <div class="option" onclick="selectAnswer(this)">C. O(n)</div>
+            <div class="option" onclick="selectAnswer(this)">D. O(n^2)</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 10 -->
+        <div class="question">
+            10. In a hash table, what is the purpose of the array used for storage?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. To store keys directly.</div>
+            <div class="option" onclick="selectAnswer(this)">B. To store values directly.</div>
+            <div class="option" onclick="selectAnswer(this)">C. To store indices generated by the hash function.</div>
+            <div class="option" onclick="selectAnswer(this)">D. To store linked lists or other data structures for handling collisions.</div>
+        </div>
+    </div>
+
+    <button id="submitBtn" onclick="submitQuiz()">Submit</button>
+
+    <div id="score" class="score"></div>
+
+    <script>
+        var selectedAnswers = [];
+        var correctAnswers = ["A", "B", "A", "C", "B", "C", "B", "B", "B", "D"]; // Add correct answers for each question
+    
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+        }
+    
+        window.onclick = function(event) {
+            if (!event.target.matches('.user-picture')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    
+        function selectAnswer(option) {
+            var questionIndex = document.querySelectorAll('.question').length;
+            var selectedOption = option.textContent.trim();
+            selectedAnswers[questionIndex - 1] = selectedOption;
+    
+            // Remove previous highlighting
+            var options = option.parentNode.getElementsByClassName('option');
+            for (var i = 0; i < options.length; i++) {
+                options[i].classList.remove('correct-answer', 'wrong-answer');
+            }
+    
+            // Highlight correct and wrong answers after a delay
+            var correctAnswer = correctAnswers[questionIndex - 1];
+            setTimeout(function() {
+                for (var i = 0; i < options.length; i++) {
+                    if (options[i].textContent.trim() === correctAnswer) {
+                        options[i].classList.add('correct-answer');
+                    } else if (options[i].textContent.trim() === selectedOption) {
+                        options[i].classList.add('wrong-answer');
+                    }
+                }
+            }, 100);
+        }
+    
+        function submitQuiz() {
+            var score = 0;
+            for (var i = 0; i < selectedAnswers.length; i++) {
+                if (selectedAnswers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+    
+            // Display final score
+            var scoreElement = document.getElementById('score');
+            scoreElement.textContent = "Your Score: " + score + " out of " + correctAnswers.length;
+            scoreElement.style.display = 'block';
+        }
+    </script>
+    
+    
+</body>
+</html>

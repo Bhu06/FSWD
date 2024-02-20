@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning App - Dashboard</title>
+
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: fantasy, cursive;
+            margin: 0;
+            padding: 0;
+            background-image: url('/Users/apple/Documents/FSWDM/Moving.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        header {
+            background-color: transparent;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 30px;
+           
+            font-family: fantasy, cursive;
+            margin: 20px 0 0; /* Move margin to top to create space between title and chart */
+        }
+
+        /* Added style for chart canvas */
+        canvas {
+            display: block;
+            margin: 20px auto;
+        }
+
+        .pieChartContainer {
+            width: 30%;
+            text-align: center;
+            position: relative; /* Added position relative for indicator box positioning */
+        }
+
+        .user-picture {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            right: 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+            color: #3498db;
+        }
+
+        /* Additional styling for overall progress */
+        #overallProgressChartContainer {
+            width: 100%;
+            text-align: center;
+        }
+
+        #overallProgressChartCanvas {
+            width: 60%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Coderz</h1>
+        <div class="dropdown">
+            <img src="/Users/apple/Documents/FSWDM/user.jpeg" alt="User Picture" class="user-picture" onclick="toggleDropdown()">
+            <div class="dropdown-content" id="dropdownContent">
+                <a href="profile.html">Profile</a><br>
+                <a href="progress.html" onclick="scrollToProgress()">Progress</a><br>
+                
+                <a href="home.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" id="contentContainer">
+        <!-- Your existing content goes here -->
+        <div id="overallProgressChartContainer">
+            <h1>Overall Progress</h1>
+            <canvas id="overallProgressChartCanvas"></canvas>
+        </div>
+        <div class="pieChartContainer">
+            <h1>Data Structures Using C</h1>
+            <canvas id="pieChart1"></canvas>
+        </div>
+        <div class="pieChartContainer">
+            <h1>Data Base Management System</h1>
+            <canvas id="pieChart2"></canvas>
+        </div>
+        <div class="pieChartContainer">
+            <h1>Logic Design</h1>
+            <canvas id="pieChart3"></canvas>
+        </div>
+        <div class="pieChartContainer">
+            <h1>Object Oriented Java Programming</h1>
+            <canvas id="pieChart4"></canvas>
+        </div>
+        <div class="pieChartContainer">
+            <h1>Statistics And Discrete Mathematics</h1>
+            <canvas id="pieChart5"></canvas>
+        </div>
+        <div class="pieChartContainer">
+            <h1>Computer Organization And Architecture</h1>
+            <canvas id="pieChart6"></canvas>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function scrollToProgress() {
+            var overallProgressChartContainer = document.getElementById("overallProgressChartContainer");
+            overallProgressChartContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Dummy data for overall progress pie chart
+        var overallProgressData = {
+            labels: ['Completed', 'In Progress', 'Not Started'],
+            datasets: [{
+                data: [30, 50, 20],
+                backgroundColor: ['#36A2EB', '#FFCE56', '#FF6384'],
+                hoverBackgroundColor: ['#36A2EB', '#FFCE56', '#FF6384']
+            }]
+        };
+
+        // Create overall progress pie chart
+        // Create overall progress pie chart
+var overallProgressChart = new Chart(document.getElementById('overallProgressChartCanvas').getContext('2d'), {
+    type: 'pie',
+    data: overallProgressData,
+    options: {
+        legend: {
+            labels: {
+                fontColor: 'white' // Change 'white' to the color you desire
+            }
+        }
+    }
+});
+
+        // Dummy data for pie charts (subject-wise progress)
+        for (var i = 1; i <= 6; i++) {
+            var chartContainer = document.getElementById('pieChart' + i);
+
+            var chartData = {
+                labels: ['Completed', 'In Progress', 'Not Started'],
+                datasets: [{
+                    data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)],
+                    backgroundColor: ['#36A2EB', '#FFCE56', '#FF6384'],
+                    hoverBackgroundColor: ['#36A2EB', '#FFCE56', '#FF6384']
+                }]
+            };
+
+            // Create pie chart
+            var chart = new Chart(chartContainer.getContext('2d'), {
+                type: 'pie',
+                data: chartData
+            });
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.user-picture')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

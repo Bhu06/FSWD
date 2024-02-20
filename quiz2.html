@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning App - Dashboard</title>
+    <style>
+        /* Your styles go here */
+        body {
+            font-family: fantasy, cursive;
+            margin: 0;
+            padding: 0;
+            background-image: url('/Users/apple/Documents/FSWDM/Moving.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        header {
+            background-color: transparent;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-family: fantasy, cursive;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 44px;
+            color: #0066cc;
+            text-decoration: underline;
+            text-align: center;
+        }
+
+        .user-picture {
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            right: 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+            color: #3498db;
+        }
+
+        .quiz-container {
+            width: 70%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            color: black;
+        }
+
+        .question {
+            font-size: 30px;
+            font-family: fantasy, cursive;
+            margin-bottom: 20px;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-gap: 10px;
+            font-size: 23px;
+        }
+
+        .option {
+            cursor: pointer;
+            padding: 10px;
+            border: 2px solid #0066cc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .option:hover {
+            background-color: #e6f7ff;
+        }
+
+        .correct-answer {
+            background-color: #8eff8e; /* Light green for correct answer */
+        }
+
+        #submitBtn {
+            margin-top: 20px;
+            font-family: fantasy, cursive;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 24px;
+            margin-left: 180px;
+        }
+
+        .score {
+            font-size: 24px;
+            font-family: fantasy, cursive;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Coderz</h1>
+        <div class="dropdown">
+            <img src="/Users/apple/Documents/FSWDM/user.jpeg" alt="User Picture" class="user-picture" onclick="toggleDropdown()">
+            <div class="dropdown-content" id="dropdownContent">
+                <a href="profile.html">Profile</a><br>
+                <a href="progress.html">Progress</a><br>
+                
+                <a href="home.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <h2>Linked Lists Quiz</h2>
+
+    <div class="quiz-container">
+        <!-- Question 1 -->
+        <div class="question">
+            1. What is a linked list in programming?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. A data structure that follows the Last In, First Out (LIFO) principle.</div>
+            <div class="option" onclick="selectAnswer(this)">B. A data structure that follows the First In, First Out (FIFO) principle.</div>
+            <div class="option" onclick="selectAnswer(this)">C. A linear data structure where elements are stored in nodes and each node points to the next one.</div>
+            <div class="option" onclick="selectAnswer(this)">D. None of the above.</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 2 -->
+        <div class="question">
+            2. In a singly linked list, how many pointers does each node have?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. 0</div>
+            <div class="option" onclick="selectAnswer(this)">B. 1</div>
+            <div class="option" onclick="selectAnswer(this)">C. 2</div>
+            <div class="option" onclick="selectAnswer(this)">D. 3</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 3 -->
+        <div class="question">
+            3. What is the term for the last node in a linked list that points to null?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Head</div>
+            <div class="option" onclick="selectAnswer(this)">B. Tail</div>
+            <div class="option" onclick="selectAnswer(this)">C. Root</div>
+            <div class="option" onclick="selectAnswer(this)">D. Leaf</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 4 -->
+        <div class="question">
+            4. What is the time complexity for searching an element in a singly linked list?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. O(1)</div>
+            <div class="option" onclick="selectAnswer(this)">B. O(log n)</div>
+            <div class="option" onclick="selectAnswer(this)">C. O(n)</div>
+            <div class="option" onclick="selectAnswer(this)">D. O(n^2)</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 5 -->
+        <div class="question">
+            5. What is the main advantage of a doubly linked list over a singly linked list?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Doubly linked lists use less memory.</div>
+            <div class="option" onclick="selectAnswer(this)">B. Doubly linked lists allow traversal in both directions.</div>
+            <div class="option" onclick="selectAnswer(this)">C. Doubly linked lists are faster for inserting elements.</div>
+            <div class="option" onclick="selectAnswer(this)">D. There is no advantage.</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 6 -->
+        <div class="question">
+            6. What is the process of adding a new node at the beginning of a linked list called?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Insertion</div>
+            <div class="option" onclick="selectAnswer(this)">B. Prepending</div>
+            <div class="option" onclick="selectAnswer(this)">C. Appending</div>
+            <div class="option" onclick="selectAnswer(this)">D. Linking</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 7 -->
+        <div class="question">
+            7. What is a circular linked list?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. A linked list with circular nodes.</div>
+            <div class="option" onclick="selectAnswer(this)">B. A linked list where the last node points to the first node.</div>
+            <div class="option" onclick="selectAnswer(this)">C. A linked list with a circular shape.</div>
+            <div class="option" onclick="selectAnswer(this)">D. A circular-shaped list of links.</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 8 -->
+        <div class="question">
+            8. What is the term for a linked list in which a node points to a previous node instead of the next node?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Reverse linked list</div>
+            <div class="option" onclick="selectAnswer(this)">B. Forward linked list</div>
+            <div class="option" onclick="selectAnswer(this)">C. Bidirectional linked list</div>
+            <div class="option" onclick="selectAnswer(this)">D. Inverted linked list</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 9 -->
+        <div class="question">
+            9. What is the term for a linked list where the last node points to the second node?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Circular linked list</div>
+            <div class="option" onclick="selectAnswer(this)">B. Doubly linked list</div>
+            <div class="option" onclick="selectAnswer(this)">C. Triply linked list</div>
+            <div class="option" onclick="selectAnswer(this)">D. Skip linked list</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <!-- Question 10 -->
+        <div class="question">
+            10. What is the term for a linked list where each node contains multiple fields or attributes?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Complex linked list</div>
+            <div class="option" onclick="selectAnswer(this)">B. Compound linked list</div>
+            <div class="option" onclick="selectAnswer(this)">C. Multifaceted linked list</div>
+            <div class="option" onclick="selectAnswer(this)">D. Structured linked list</div>
+        </div>
+    </div>
+
+    <button id="submitBtn" onclick="submitQuiz()">Submit</button>
+
+    <div id="score" class="score"></div>
+
+    <script>
+        var selectedAnswers = [];
+        var correctAnswers = ["C", "B", "B", "C", "B", "B", "B", "C", "A", "A"]; // Add correct answers for each question
+
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.user-picture')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        function selectAnswer(option) {
+            var questionIndex = document.querySelectorAll('.question').length;
+            selectedAnswers[questionIndex - 1] = option.textContent.trim();
+
+            // Highlight correct answer
+            var correctAnswerIndex = correctAnswers.length - 1;
+            var options = option.parentNode.getElementsByClassName('option');
+            for (var i = 0; i < options.length; i++) {
+                if (i === correctAnswerIndex) {
+                    options[i].classList.add('correct-answer');
+                }
+            }
+        }
+
+        function submitQuiz() {
+            var score = 0;
+            for (var i = 0; i < selectedAnswers.length; i++) {
+                if (selectedAnswers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+
+            var scoreElement = document.getElementById('score');
+            scoreElement.textContent = "Your Score: " + score + " out of " + correctAnswers.length;
+            scoreElement.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

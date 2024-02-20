@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coderz</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: fantasy;
+      background-image: url('/Users/apple/Documents/FSWDM/Moving.gif');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-size: 16px;
+      color: black;
+    }
+
+    .header {
+      background-color: rgba(25, 42, 86, 0);
+      padding: 1px;
+      text-align: center;
+      color: white;
+      height: 50px;
+      margin-bottom: -10px;
+      font-size: 50px;
+    }
+
+    .header h1 {
+      font-size: 80px;
+    }
+
+    .navbar {
+      background-color: rgba(52, 73, 94, 0);
+      overflow: hidden;
+      text-align: center;
+      padding: 50px;
+      height: 80px;
+      margin-top: 50px;
+    }
+
+    .navbar a {
+      display: inline-block;
+      color: white;
+      padding: 50px 80px;
+      padding-top: 70px;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      transition: border-bottom 0.3s ease, color 0.3s ease;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      border-bottom: 2px solid white;
+      color: #3498db;
+    }
+
+    .section {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .section img {
+      width: 500px;
+      height: 300px;
+      border-radius: 10px;
+      margin: 20px 0;
+      float: right;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .section .text {
+      display: inline-block;
+      max-width: 400px;
+      vertical-align: top;
+      text-align: left;
+      color: white;
+    }
+
+    .section img:hover {
+      transform: scale(1.1);
+    }
+
+    .about-us {
+      padding: 100px;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #333; /* Text color for about-us section */
+    }
+
+    .about-us h2{
+      font-size: 33px;
+    }
+    
+    .about-us p {
+      font-size: 26px; /* Adjust the font size as needed */
+    }
+
+    /* Additional styles for .section.home */
+    .section.home {
+      background-color: rgba(144, 90, 90, 0);
+      color: antiquewhite; /* Text color for home section */
+      font-size: 33px;
+    }
+
+    .advantages img{
+      width: 500px;
+      height: 300px;
+      border-radius: 20px;
+      margin: 20px 0;
+      float: left;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .section .text {
+      display: inline-block;
+      max-width: 800px;
+      vertical-align: top;
+      text-align: left;
+      color: white;
+      margin-right: 20px; /* Add margin to move text towards the left */
+    }
+
+    .contact p{
+      color: white;
+      text-align: right;
+      padding-right: 60px;
+      font-size: 26px;
+    }
+
+    .contact h2{
+      color: white;
+      text-align: right;
+      padding-right: 60px;
+      font-size: 33px;
+    }
+  </style>
+</head>
+<body class="body">
+  <div class="header">
+    <h1>Coderz</h1>
+  </div>
+˘
+  <div class="navbar">
+    <a href="#home" onclick="smoothScroll('home')">Home</a>
+    <a href="courses.html" onclick="smoothScroll('courses')">Courses</a>
+    <a href="#contact" onclick="smoothScroll('contact')">Contact Us</a>
+    <a href="signup1.html" onclick="smoothScroll('signup')">Signup</a>
+  </div>
+
+  <div class="section home" id="home">
+    <h2>Welcome to Our Learning App</h2>
+    <p>Explore a world of knowledge with our interactive learning platform.</p>
+
+    <div class="text">
+      <p>Unlock your potential with engaging courses and lessons.</p>
+    </div>
+    <img src="/Users/apple/Documents/FSWDM/p1.avif" alt="p1.avif" class="right">
+  </div>
+
+  <!-- About Us Section -->
+  <div class="about-us">
+    <h2>About Us</h2>
+    <p>Welcome to Coderz, your go-to platform for interactive and engaging learning. We believe in unlocking the potential of every learner by providing a world-class education experience. Our diverse range of courses and lessons cater to various interests and skill levels. Join us on the journey of knowledge exploration and skill development.</p>
+    <div class="advantages">
+      <img src="/Users/apple/Documents/FSWDM/p2.jpeg" alt="p2.jpeg" class="right">
+    </div>
+  </div>
+
+  <!-- Contact Us Section -->
+  <div class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>For any queries feel free to contact us on<br>
+      Ph no.:+91 9866738298<br>
+      Email: coderz@gmail.com
+    </p>
+  </div>
+
+  <script>
+    function smoothScroll(target) {
+      const targetElement = document.getElementById(target);
+      window.scrollTo({
+        top: target === 'contact' ? document.body.scrollHeight : targetElement.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+</body>
+</html>

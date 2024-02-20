@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: fantasy,cursive;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: url('/Users/apple/Documents/FSWDM/Moving.gif') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0);
+            padding: 10px;
+            text-align: left;
+            color: white;
+            font-size: 50px;
+        }
+
+        .login-container {
+            max-width: 400px;
+            background-color: rgba(255,255,255, 0.7);
+            padding: 20px;
+            border-radius: 20px;
+            font-size: 30px;
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-bottom: 50px;
+             
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 24px;
+            border: 2px;
+            border-radius: 20px;
+           
+        }
+
+        button {
+            background-color:#3498db ;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: fantasy,cursive;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color:#3498db ;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+        Coderz
+</div>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form action="your_backend_login_endpoint" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button onclick="location.href='main.html'">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

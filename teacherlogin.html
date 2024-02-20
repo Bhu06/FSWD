@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning App - Dashboard</title>
+    <style>
+        body {
+            font-family: fantasy, cursive;
+            margin: 0;
+            padding: 0;
+            background-image: url('/Users/apple/Documents/FSWDM/Moving.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        header {
+            background-color: transparent;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-family: fantasy, cursive;
+            margin: 0;
+        }
+
+        p {
+            font-size: 26px;
+            font-family: fantasy, cursive;
+            margin-bottom: 20px;
+        }
+
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .course {
+            flex-basis: 48%;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        .course:nth-child(odd) {
+            margin-right: 2%;
+        }
+
+        .course:hover {
+            background-color: #e6f7ff;
+        }
+
+        .course h2 {
+           
+            color: #0066cc;
+            font-size: 32px;
+        }
+
+        .user-picture {
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px; /* Set the minimum width of the dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    right: 0; /* Align the dropdown to the right */
+    border-radius: 10px;
+    text-align: center;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Existing styles remain unchanged */
+
+.dropdown-content a {
+    text-decoration: none;
+    color: black; /* Set the default text color to white */
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+.dropdown-content a:hover {
+    background-color:#f9f9f9;
+    color: #3498db; /* Set the hover text color to black */
+}
+
+
+       
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .course a {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 23px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Coderz</h1>
+        <div class="dropdown">
+            <img src="/Users/apple/Documents/FSWDM/user.jpeg" alt="User Picture" class="user-picture" onclick="toggleDropdown()">
+            <div class="dropdown-content" id="dropdownContent">
+                <a href="profile.html">Profile</a><br>
+                <a href="progress.html">Progress Of Students</a><br>
+               <a href="home.html">Logout</a>
+            </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Welcome, XYZ!</h1>
+        <p>Explore your courses and start teaching to spread knowledge.</p>
+
+        <div class="courses">
+            <!-- Your course cards here -->
+            <div class="course">
+                <h2>Data Structures using C</h2>
+              
+                <a href="#">Upload Notes</a>
+            </div>
+
+            <div class="course">
+                <h2>Data Base Management System</h2>
+                
+                <a href="#">Upload Notes</a>
+            </div>
+
+            <div class="course">
+                <h2>Object Oriented Java Programming</h2>
+               
+                <a href="#">Upload Notes</a>
+            </div>
+
+            <div class="course">
+                <h2>Logic Design</h2>
+               
+                <a href="#">Upload Notes</a>
+            </div>
+
+            <div class="course">
+                <h2>Statistics and Discrete Maths</h2>
+               
+                <a href="#">Upload Notes</a>
+            </div>
+
+            <div class="course">
+                <h2>Computer Organization and Architecture</h2>
+               
+                <a href="#">Upload Notes</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.user-picture')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

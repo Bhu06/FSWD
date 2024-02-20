@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning App - Dashboard</title>
+    <style>
+        /* Your styles go here */
+        body {
+            font-family: fantasy, cursive;
+            margin: 0;
+            padding: 0;
+            background-image: url('/Users/apple/Documents/FSWDM/Moving.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        header {
+            background-color: transparent;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-family: fantasy, cursive;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 44px;
+            color: #0066cc;
+            text-decoration: underline;
+            text-align: center;
+        }
+
+        .user-picture {
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            right: 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+            color: #3498db;
+        }
+
+        .quiz-container {
+            width: 70%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            color: black;
+        }
+
+        .question {
+            font-size: 30px;
+            font-family: fantasy, cursive;
+            margin-bottom: 20px;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-gap: 10px;
+            font-size: 23px;
+        }
+
+        .option {
+            cursor: pointer;
+            padding: 10px;
+            border: 2px solid #0066cc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .option:hover {
+            background-color: #e6f7ff;
+        }
+
+        .correct-answer {
+            background-color: #8eff8e; /* Light green for correct answer */
+        }
+
+        #submitBtn {
+            margin-top: 20px;
+            font-family: fantasy, cursive;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 24px;
+            margin-left: 180px;
+        }
+
+        .score {
+            font-size: 24px;
+            font-family: fantasy, cursive;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Coderz</h1>
+        <div class="dropdown">
+            <img src="/Users/apple/Documents/FSWDM/user.jpeg" alt="User Picture" class="user-picture" onclick="toggleDropdown()">
+            <div class="dropdown-content" id="dropdownContent">
+                <a href="profile.html">Profile</a><br>
+                <a href="progress.html">Progress</a><br>
+               
+                <a href="home.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <h2>Stacks Quiz</h2>
+
+    <div class="quiz-container">
+        <!-- Question 1 -->
+        <div class="question">
+            1. What is a stack in programming?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. A data structure that follows the Last In, First Out (LIFO) principle.</div>
+            <div class="option" onclick="selectAnswer(this)">B. A data structure that follows the First In, First Out (FIFO) principle.</div>
+            <div class="option" onclick="selectAnswer(this)">C. A sorting algorithm.</div>
+            <div class="option" onclick="selectAnswer(this)">D. None of the above.</div>
+        </div>
+        </div>
+
+        <div class="quiz-container">
+        <!-- Question 2 -->
+            <div class="question">
+            2. Which operation adds an element to the top of the stack?
+            </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Pop</div>
+            <div class="option" onclick="selectAnswer(this)">B. Push</div>
+            <div class="option" onclick="selectAnswer(this)">C. Peek</div>
+            <div class="option" onclick="selectAnswer(this)">D. Insert</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question">
+        3. What is the process of removing an element from the stack called?
+    </div>
+    <div class="options">
+        <div class="option" onclick="selectAnswer(this)">A. Pop</div>
+        <div class="option" onclick="selectAnswer(this)">B. Push</div>
+        <div class="option" onclick="selectAnswer(this)">C. Peek</div>
+        <div class="option" onclick="selectAnswer(this)">D. Extract</div>
+    </div>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question">
+            4. Which of the following is NOT a characteristic of a stack?
+    </div>
+    <div class="options">
+        <div class="option" onclick="selectAnswer(this)">A. LIFO (Last In, First Out) structure</div>
+        <div class="option" onclick="selectAnswer(this)">B. Constant time complexity for push and pop operations</div>
+        <div class="option" onclick="selectAnswer(this)">C. Dynamic size</div>
+        <div class="option" onclick="selectAnswer(this)">D. Random access</div>
+    </div>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question">
+            5. In a stack, which operation retrieves the top element without removing it?
+    </div>
+    <div class="options">
+        <div class="option" onclick="selectAnswer(this)">A. Pop</div>
+        <div class="option" onclick="selectAnswer(this)">B. Push</div>
+        <div class="option" onclick="selectAnswer(this)">C. Peek</div>
+        <div class="option" onclick="selectAnswer(this)">D. Top</div>
+    </div>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question">
+          6. Which data structure can be used to implement a stack efficiently?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Array</div>
+            <div class="option" onclick="selectAnswer(this)">B. Linked List</div>
+            <div class="option" onclick="selectAnswer(this)">C. Queue</div>
+            <div class="option" onclick="selectAnswer(this)">D. Tree</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question">
+            7. What happens when you try to pop from an empty stack?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Stack Overflow</div>
+            <div class="option" onclick="selectAnswer(this)">B. Memory Leak</div>
+            <div class="option" onclick="selectAnswer(this)">C. Underflow</div>
+            <div class="option" onclick="selectAnswer(this)">D. Overflow</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question">
+            8. Which of the following is a real-world example of a stack?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Pile of books</div>
+            <div class="option" onclick="selectAnswer(this)">B. Queue at a bus stop</div>
+            <div class="option" onclick="selectAnswer(this)">C. Random-access memory (RAM)</div>
+            <div class="option" onclick="selectAnswer(this)">D. Linked List</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question">
+            9. In stack terminology, what is the term for accessing an item without removing it?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. Pop</div>
+            <div class="option" onclick="selectAnswer(this)">B. Push</div>
+            <div class="option" onclick="selectAnswer(this)">C. Peek</div>
+            <div class="option" onclick="selectAnswer(this)">D. Retrieve</div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question">
+            10. What is the time complexity of the push and pop operations in a stack implemented using a linked list?
+        </div>
+        <div class="options">
+            <div class="option" onclick="selectAnswer(this)">A. O(1)</div>
+            <div class="option" onclick="selectAnswer(this)">B. O(log n)</div>
+            <div class="option" onclick="selectAnswer(this)">C. O(n)</div>
+            <div class="option" onclick="selectAnswer(this)">D. O(n^2)</div>
+
+        </div>
+        </div>
+
+    
+
+
+
+
+
+
+
+
+
+    <!-- Add similar sections for the rest of the questions -->
+
+    <button id="submitBtn" onclick="submitQuiz()">Submit</button>
+
+    <div id="score" class="score"></div>
+
+    <script>
+        var selectedAnswers = [];
+        var correctAnswers = ["B", "A", "A", "B", "C", "B", "C", "A", "C", "A"]; // Correct answers for each question
+    
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+        }
+    
+        window.onclick = function(event) {
+            if (!event.target.matches('.user-picture')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    
+        function selectAnswer(option) {
+            var questionIndex = document.querySelectorAll('.question').length;
+            selectedAnswers[questionIndex - 1] = option.textContent.trim();
+    
+            // Remove previous highlighting from all options
+            var options = document.querySelectorAll('.option');
+            options.forEach(function (opt) {
+                opt.classList.remove('correct-answer');
+            });
+    
+            // Highlight correct answer
+            if (selectedAnswers[questionIndex - 1] === correctAnswers[questionIndex - 1]) {
+                option.classList.add('correct-answer');
+            }
+        }
+    
+        function submitQuiz() {
+            var score = 0;
+            for (var i = 0; i < selectedAnswers.length; i++) {
+                if (selectedAnswers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+    
+            var scoreElement = document.getElementById('score');
+            scoreElement.textContent = "Your Score: " + score + " out of " + correctAnswers.length;
+            scoreElement.style.display = 'block';
+        }
+    </script>
+    
+</body>
+</html>

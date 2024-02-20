@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Notes</title>
+    <style>
+        body {
+            font-family: fantasy, cursive;
+            margin: 0;
+            padding: 0;
+            background: url('/Users/apple/Documents/FSWDM/Moving.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            background-color: transparent;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 10px;
+            margin-top: 0px;
+            font-size: 50px;
+        }
+
+        .overview {
+            background: rgba(0, 0, 0, 0);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .overview h2 {
+            color: #0066cc;
+            margin-top: 30px;
+            font-size: 40px;
+        }
+
+        .overview p {
+            color: whitesmoke;
+            font-size: 24px;
+        }
+
+        .overview ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: whitesmoke;
+            font-size: 24px;
+        }
+
+        .chapter-box {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            color: #333;
+            transition: background-color 0.3s;
+            margin: 20px;
+        }
+
+        .chapter-box h2 {
+            color: #0066cc;
+            font-size: 33px;
+        }
+
+        .chapter-box p {
+            font-size: 26px;
+        }
+
+        .chapter-box a {
+            display: inline-block;
+            background-color: #4CAF50;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 24px;
+        }
+
+        .chapter-box a.quiz-btn {
+            background-color: #ffcc00;
+            margin-left: 10px;
+        }
+
+        .user-icon{
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            right: 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Coderz</h1>
+    <div class="dropdown">
+        <img src="/Users/apple/Documents/FSWDM/user.jpeg" alt="User Picture" class="user-icon" onclick="toggleDropdown()">
+        <div class="dropdown-content" id="dropdownContent">
+            <a href="profile.html">Profile</a><br>
+            <a href="progress.html">Progress</a><br>
+     
+            <a href="home.html">Logout</a>
+        </div>
+    </div>
+</header>
+
+<div class="overview">
+    <h1>Subject - Data Structures Using C</h1>
+    <h2>Course Overview</h2>
+    <p>Data structures are essential concepts in computer science that allow efficient organization, storage, and manipulation of data. They play a crucial role in designing algorithms and optimizing the performance of computer programs. Understanding data structures is fundamental for building efficient software systems. Here's an overview of data structures using C:</p>
+    <ul>
+        <li><u>Introduction to Data Structures:</u>
+            Data structures are methods of organizing and storing data to perform operations efficiently.
+            They provide a way to manage and structure data for various applications.</li>
+        <li><u>Arrays:</u>
+            Arrays are a fundamental data structure that stores elements of the same type in contiguous memory locations.
+            They offer quick access to elements using indices but have a fixed size.</li>
+        <li><u>Linked Lists:</u>
+            Linked lists consist of nodes where each node contains data and a reference to the next node.
+            They provide dynamic memory allocation, allowing for flexibility in size.</li>
+        <li><u>Stacks:</u>
+            Stacks follow the Last In, First Out (LIFO) principle.
+            Elements are added and removed from the same end, the top of the stack.</li>
+        <li><u>Queues:</u>
+            Queues follow the First In, First Out (FIFO) principle.
+            Elements are added at the rear and removed from the front.</li>
+        <li><u>Trees:</u>
+            Trees are hierarchical data structures with a root, branches, and leaves.
+            Binary trees have at most two children for each node.</li>
+        <li><u>Graphs:</u>
+            Graphs consist of nodes and edges that connect these nodes.
+            They represent relationships between different entities.</li>
+        <li><u>Hashing:</u>
+            Hashing is a technique to map data to a fixed-size array, improving search efficiency.
+            It involves using a hash function to compute an index into an array.</li>
+    </ul>
+    <!-- Add more bullet points as needed -->
+</div>
+
+<section class="chapter-box">
+    <h2>Unit 1: Stacks</h2>
+    <p>Stacks are a fundamental data structure that follows the Last In, First Out (LIFO) principle. In a stack, elements are added and removed from the same end, known as the top of the stack. This structure is commonly used for managing function calls, undo mechanisms, and tracking execution history in algorithms.</p>
+    <a href="chapter1_notes.pdf" download>Download Unit 1 Notes</a>
+    <a href="quiz.html" class="quiz-btn">Take Quiz</a>
+</section>
+
+<section class="chapter-box">
+    <h2>Unit 2: Queues</h2>
+    <p>Queues, adhering to the First In, First Out (FIFO) principle, manage elements where items are added at the rear and removed from the front. They find applications in scenarios like task scheduling and print job management.</p>
+    <a href="chapter2_notes.pdf" download>Download Unit 2 Notes</a>
+    <a href="quiz1.html" class="quiz-btn">Take Quiz</a>
+</section>
+
+<section class="chapter-box">
+    <h2>Unit 3: Linked List</h2>
+    <p>Linked Lists (LL) consist of nodes with data and references to the next node, offering dynamic memory allocation. They provide flexibility in size and efficient insertion and deletion operations.</p>
+    <a href="chapter3_notes.pdf" download>Download Unit 3 Notes</a>
+    <a href="quiz2.html" class="quiz-btn">Take Quiz</a>
+</section>
+
+<section class="chapter-box">
+    <h2>Unit 4: Trees and Hashing</h2>
+    <p>Trees are hierarchical structures with a root, branches, and leaves. Binary trees, a common type, have at most two children per node. They are widely used in search algorithms and hierarchical data representation.
+        Hashing is a technique mapping data to a fixed-size array, enhancing search efficiency with a hash function. It involves assigning an index to data, facilitating quick retrieval in various applications such as databases and caches.</p>
+    <a href="chapter4_notes.pdf" download>Download Unit 4 Notes</a>
+    <a href="quiz3.html" class="quiz-btn">Take Quiz</a>
+</section>
+
+<!-- Add more sections as needed -->
+
+<script>
+    function toggleDropdown() {
+        var dropdownContent = document.getElementById("dropdownContent");
+        dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.user-icon')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === 'block') {
+                    openDropdown.style.display = 'none';
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

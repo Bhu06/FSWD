@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Notes</title>
+    <style>
+        body {
+            font-family: fantasy, cursive;
+            margin: 0;
+            padding: 0;
+            background: url('/Users/apple/Documents/FSWDM/Moving.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            background-color: transparent;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 10px;
+            margin-top: 0px;
+            font-size: 50px;
+        }
+
+        .overview {
+            background: rgba(0, 0, 0, 0);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .overview h2 {
+            color: #0066cc;
+            margin-top: 30px;
+            font-size: 40px;
+        }
+
+        .overview p {
+            color: whitesmoke;
+            font-size: 24px;
+        }
+
+        .overview ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: whitesmoke;
+            font-size: 24px;
+        }
+
+        .chapter-box {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            color: #333;
+            transition: background-color 0.3s;
+            margin: 20px;
+        }
+
+        .chapter-box h2 {
+            color: #0066cc;
+            font-size: 33px;
+        }
+
+        .chapter-box p {
+            font-size: 26px;
+        }
+
+        .chapter-box a {
+            display: inline-block;
+            background-color: #4CAF50;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 24px;
+        }
+
+        .chapter-box a.quiz-btn {
+            background-color: #ffcc00;
+            margin-left: 10px;
+        }
+
+        .user-icon{
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            right: 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Coderz</h1>
+    <div class="dropdown">
+        <img src="/Users/apple/Documents/FSWDM/user.jpeg" alt="User Picture" class="user-icon" onclick="toggleDropdown()">
+        <div class="dropdown-content" id="dropdownContent">
+            <a href="profile.html">Profile</a><br>
+            <a href="progress.html">Progress</a><br>
+         
+            <a href="home.html">Logout</a>
+        </div>
+    </div>
+</header>
+
+<div class="overview">
+    <h1>Subject - Data Base Management System</h1>
+    <h2>Course Overview</h2>
+    <p>Database Management System (DBMS) is a software suite that provides an interface for managing and interacting with databases. Its primary purpose is to facilitate the efficient storage, retrieval, and management of data in a structured way. Here's an overview of key concepts related to DBMS:</p>
+    <ul>
+        <li><u>Data Base:</u>
+            A structured collection of data organized to meet specific requirements.
+            Databases can be relational, hierarchical, network, or object-oriented, among other types.</li>
+        <li><u>DBMS Components:</u>
+            <li><u>Data Definition Language (DDL):</u></li>
+            Allows users to define the structure and schema of the database.
+            Includes commands like CREATE, ALTER, and DROP for defining tables and relationships.</li>
+            <li><u>Data Manipulation Language (DML):</u></li>
+            <li>Facilitates the manipulation of data stored in the database.
+                Includes commands like SELECT, INSERT, UPDATE, and DELETE for querying and modifying data.</li>
+            <li><u>Database Engine:</u></li>
+            <li>Core component responsible for managing storage, retrieval, and processing of data.
+                Optimizes queries and transactions for performance.</li>
+            <li><u>Query Processor:</u></li>
+            <li>Analyzes and processes SQL queries to generate execution plans.
+                Optimizes query performance by choosing efficient algorithms.</li>
+           
+             <li><u>Database Security:</u></li>
+                
+                <li>Enforces access controls, authentication, and authorization to secure data.
+                Protects against unauthorized access and data breaches.</li>
+                <li><u>Backup and Recovery:</u></li>
+                
+                <li>Manages the backup and restoration of data to prevent data loss.
+                Implements recovery mechanisms to restore the database to a consistent state after failures.</li>
+               
+        <li><u>Relational Databases:</u>
+            Most common type of database where data is organized in tables with rows and columns.
+            Relationships between tables are established using keys.</li>
+        <li><u>Normalization:</u>
+            Process of organizing data to eliminate redundancy and improve data integrity.
+Divides large tables into smaller, related tables.</li>
+        <li><u>Structured Query Language (SQL):</u>
+            Standardized language used to interact with relational databases.
+Allows users to define, manipulate, and query data.</li>
+        <li><u>NoSQL Databases:</u>
+            Designed to handle unstructured or semi-structured data and provide flexibility in data modeling.
+            Types include document-oriented, key-value, column-family, and graph databases.</li>
+        
+    </ul>
+    <!-- Add more bullet points as needed -->
+</div>
+
+<section class="chapter-box">
+    <h2>Unit 1: Structured Query Language (SQL)</h2>
+    <p>Structured Query Language (SQL) is a powerful and standardized programming language specifically designed for managing and manipulating relational databases. SQL allows users to define, query, update, and manage databases, providing a comprehensive set of commands for creating tables, inserting data, querying information, and ensuring data integrity through constraints and transactions. It serves as the fundamental language for interacting with relational database management systems (RDBMS) like MySQL, PostgreSQL, Oracle, and Microsoft SQL Server.</p>
+    <a href="chapter1_notes.pdf" download>Download Unit 1 Notes</a>
+    <a href="#" class="quiz-btn">Take Quiz</a>
+</section>
+
+<section class="chapter-box">
+    <h2>Unit 2: ER Diagram And Relational Algebra</h2>
+    <p> Entity-Relationship (ER) diagrams serve as visual models for designing relational databases, portraying entities, their attributes, and the relationships between them. Entities are depicted as rectangles, attributes as ovals, and relationships as diamond shapes connecting entities. This visualization aids in structuring databases, ensuring data integrity, and optimizing relational designs. In parallel, relational algebra provides a theoretical framework for manipulating relational databases through operations such as selection (σ), projection (π), union (∪), intersection (∩), join (⨝), and difference (-). These operations are crucial for querying and transforming data within relational databases. Relational algebra forms the foundation for query languages like SQL, enabling effective expression and optimization of queries on relational databases. </p>
+    <a href="chapter2_notes.pdf" download>Download Unit 2 Notes</a>
+    <a href="#" class="quiz-btn">Take Quiz</a>
+</section>
+
+<section class="chapter-box">
+    <h2>Unit 3: Normalization</h2>
+    <p>Normalization is the database design process to minimize data redundancy and dependency by organizing tables and attributes. It involves decomposing complex tables into smaller, well-structured ones, reducing anomalies and ensuring efficient data storage while maintaining data integrity.</p>
+    <a href="chapter3_notes.pdf" download>Download Unit 3 Notes</a>
+    <a href="#" class="quiz-btn">Take Quiz</a>
+</section>
+
+<section class="chapter-box">
+    <h2>Unit 4: NoSQL</h2>
+    <p>NoSQL, or "Not Only SQL," is a category of database systems that diverge from traditional relational databases by not using a structured query language (SQL) for data manipulation. Instead, NoSQL databases are designed to handle diverse and unstructured data types, providing flexibility and scalability for applications with rapidly evolving data requirements. They can use various data models, such as document-oriented, key-value, column-family, or graph databases, catering to specific use cases and offering high performance and horizontal scalability.</p>
+    <a href="chapter4_notes.pdf" download>Download Unit 4 Notes</a>
+    <a href="#" class="quiz-btn">Take Quiz</a>
+</section>
+
+<section class="chapter-box">
+    <h2>Unit 5: Transactions</h2>
+    <p>Transactions in databases ensure that a series of operations are treated as a single, indivisible unit, following the ACID properties for Atomicity, Consistency, Isolation, and Durability. They provide reliability and maintain data integrity by guaranteeing either the successful completion or full rollback of a set of related operations.</p>
+    <a href="chapter5_notes.pdf" download>Download Unit 5 Notes</a>
+    <a href="#" class="quiz-btn">Take Quiz</a>
+</section>
+
+
+<!-- Add more sections as needed -->
+
+<script>
+    function toggleDropdown() {
+        var dropdownContent = document.getElementById("dropdownContent");
+        dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.user-icon')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === 'block') {
+                    openDropdown.style.display = 'none';
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
